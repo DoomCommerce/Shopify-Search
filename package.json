@@ -1,0 +1,56 @@
+{
+    "name": "@doomcommerce/shopify-search",
+    "version": "1.0.0",
+    "description": "Shopify search query builder",
+    "main": "./Build/index.js",
+    "types": "./Build/index.d.ts",
+
+    "exports": {
+        ".": {
+            "require": "./Build/index.js",
+            "types": "./Build/index.d.ts",
+            "default": "./Build/index.js"
+        }
+    },
+
+    "scripts": {
+        "build" : "tsc"
+    },
+
+    "publishConfig": {
+        "access": "public"
+    },
+
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DoomCommerce/Shopify-Search.git"
+    },
+    "bugs": {
+        "url": "https://github.com/DoomCommerce/Shopify-Search/issues"
+    },
+    "homepage": "https://github.com/DoomCommerce/Shopify-Search",
+    "author": "DoomCommerce",
+    "license": "AGPLv3",
+
+    "keywords": [
+        "shopify",
+        "node",
+        "graphql",
+        "search" ,
+        "query" ,
+        "builder"
+    ],
+
+    "devDependencies": {
+        "@types/node": "^20.5.7",
+        "ts-node": "^10.9.1",
+        "typescript": "^5.2.2"
+    },
+    "files": [
+        "**/*.d.ts",
+        "**/*.d.ts.map",
+        "**/*.js",
+        "**/*.js.map",
+        "!node_modules"
+    ]
+}
