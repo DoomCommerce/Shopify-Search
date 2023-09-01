@@ -1,6 +1,6 @@
 {
     "name": "@doomcommerce/shopify-search",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "Shopify search query builder",
     "main": "./Build/Source/mod.js",
     "types": "./Build/Source/mod.d.ts",

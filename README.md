@@ -15,8 +15,8 @@ Create search query strings with helper functions.
 
 <br>
 
-[<img height = 500 width = 17% align = left  src = 'Resources/Space.svg' >][#]
-[<img height = 500 width = 17% align = right src = 'Resources/Space.svg' >][#]
+[<img height = 500 width = 15% align = left  src = 'Resources/Space.svg' >][#]
+[<img height = 500 width = 15% align = right src = 'Resources/Space.svg' >][#]
 <div align = left >
 
 ```ts
