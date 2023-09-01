@@ -9,8 +9,8 @@ Create search query strings with helper functions.
 
 <br>
 
-[<img height = 500 width = 18% align = left  src = 'Resources/Space.svg' >][#]
-[<img height = 500 width = 18% align = right src = 'Resources/Space.svg' >][#]
+[<img height = 500 width = 17% align = left  src = 'Resources/Space.svg' >][#]
+[<img height = 500 width = 17% align = right src = 'Resources/Space.svg' >][#]
 <div align = left >
 
 ```ts
@@ -97,15 +97,56 @@ const string = searchify( or( /* ... */ ) )
 
 <br>
 
-### And
+### And & Or
 
-### Or
+Combines child expressions together with their respective operator.
+
+```ts
+const expression = and( /* A */ , /* B */ )
+```
+
+```txt
+( A ) AND ( B )
+```
+
+Marks `include` & `exclude` statements to use their respective operator.
+
+```ts
+const expression = and( include() ) // Properties in include use 'AND' to combine
+```
+
+<br>
 
 ### Not
 
-### Include
+The child expression is wrapped in a negation statement.
 
-### Exclude
+```ts
+const expression = not( /* ... */ )
+```
+
+```txt
+NOT ( ... )
+```
+
+<br>
+
+### Include & Exclude
+
+Collection of optional filters that can be combined ( + negated ).
+
+```ts
+include({
+
+    orders : {
+        from : 1000 ,
+        to : 10000
+    },
+
+    channels : [ 'gid://shopify/Channel/123' ]
+    tags : [ 'Tag' ]
+})
+```
 
 <br>
 
