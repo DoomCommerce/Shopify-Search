@@ -1,0 +1,45 @@
+
+name : 'Publish to NPM & GitHub'
+
+on:
+    release:
+      types : [ created ]
+
+jobs:
+    npm:
+
+        runs-on: ubuntu-latest
+
+        steps:
+
+            -   name : Checkout Repository
+                uses : actions/checkout@v3
+
+
+            -   name : Setup NPM Registry
+                uses : actions/setup-node@v3
+                with :
+                    node-version : '20.x'
+                    registry-url : 'https://registry.npmjs.org'
+
+
+            -   name : Install Dependencies
+                run : npm install
+
+
+            -   name : Publish to NPM
+                if : contains(github.ref, 'tags')
+                run : npm publish --access=public
+                env :
+                    NODE_AUTH_TOKEN : ${{ secrets.NPM_Token }}
+
+
+            -   name : Setup GitHub Registry
+                uses : actions/setup-node@v3
+                with :
+                    registry-url : 'https://npm.pkg.github.com'
+
+            -   name : Publish to GitHub
+                run : npm publish
+                env :
+                    NODE_AUTH_TOKEN: ${{ github.token }}
