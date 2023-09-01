@@ -1,6 +1,12 @@
 
 <div align = center >
 
+<br>
+
+[![Badge NPM]][NPM]
+
+<br>
+
 # Shopify Search <br> Query Builder
 
 Create search query strings with helper functions.
@@ -160,3 +166,6 @@ include({
 [Or]: #or
 
 [#]: #
+
+[Badge NPM]: https://img.shields.io/npm/v/%40doomcommerce%2Fshopify-search?style=for-the-badge&logoColor=white&logo=NPM
+[NPM]: https://www.npmjs.com/package/@doomcommerce/shopify-search
