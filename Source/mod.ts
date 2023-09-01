@@ -15,12 +15,10 @@ interface Properties {
 
 
 interface Include {
-    combinator : Combinator
     include : Properties
 }
 
 interface Exclude {
-    combinator : Combinator
     exclude : Properties
 }
 
@@ -28,11 +26,9 @@ type Filter =
     | Include
     | Exclude
 
-
 type Combinator =
     | 'And'
     | 'Or'
-
 
 interface Or {
     or : Array<Expression>
@@ -43,22 +39,16 @@ interface And {
 }
 
 interface Not {
-    not : Expression
+    not : And | Or
 }
 
 type Expression = And | Or | Not | Exclude | Include
 
 
-function searchify ( value : Expression ) : string {
+function searchify ( value : And | Or | Not ) : string {
 
-    if( isAnd(value) )
-        return value.and.map(searchify).map(wrap).join(' AND ')
-
-    if( isOr(value) )
-        return value.or.map(searchify).map(wrap).join(' OR ')
-
-    if( isInclude(value) || isExclude(value) )
-        return toString(value)
+    if( isAnd(value) || isOr(value) )
+        return stringifyCondition(value)
 
     if( isNot(value) )
         return `NOT ${ wrap(searchify(value.not)) }`
@@ -66,9 +56,35 @@ function searchify ( value : Expression ) : string {
     throw `Unknown value type` + JSON.stringify(value)
 }
 
-function toString ( filter : Filter ){
+function toString ( value : Expression , combinator : Combinator ){
 
-    const { combinator } = filter
+    if( isAnd(value) || isOr(value) || isNot(value) )
+        return searchify(value)
+
+    if( isInclude(value) || isExclude(value) )
+        return stringifyFilter(value,combinator)
+
+    throw `Unknown value type` + JSON.stringify(value)
+}
+
+
+function stringifyCondition ( conditional : And | Or ){
+
+    const filters = ( isAnd(conditional) )
+        ? conditional.and
+        : conditional.or
+
+    const combinator = ( isAnd(conditional) )
+        ? 'And' : 'Or'
+
+    return filters
+        .map(( filter ) => toString(filter,combinator))
+        .filter(( value ) => value.length )
+        .map(wrap).join(' AND ')
+
+}
+
+function stringifyFilter ( filter : Filter , combinator : Combinator ){
 
     const exclude = isExclude(filter)
 
@@ -104,6 +120,9 @@ function toString ( filter : Filter ){
         }
     }
 
+    if( filters.length < 1 )
+        return ''
+
     if( exclude )
         filters = filters.map(( filter ) => `NOT ${ wrap(filter) }`)
 
@@ -113,16 +132,14 @@ function toString ( filter : Filter ){
     return filters.join(separator)
 }
 
-function exclude ( combinator : Combinator , properties : Properties ){
+function exclude ( properties : Properties ){
     return {
-        combinator ,
         exclude : properties
     }
 }
 
-function include ( combinator : Combinator , properties : Properties ){
+function include ( properties : Properties ){
     return {
-        combinator ,
         include : properties
     }
 }
@@ -140,7 +157,7 @@ function and ( ... filters : Array<Expression> ){
     }
 }
 
-function not ( filter : Expression ){
+function not ( filter : And | Or ){
     return {
         not : filter
     }
