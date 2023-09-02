@@ -3,6 +3,7 @@
 
 <div align = center >
 
+[![Button Installation]][Installation]  
 [![Button Usage]][Usage]  
 [![Button Examples]][Examples]
 
@@ -10,7 +11,7 @@
 
 <br>
 
-## Usage
+# Usage
 
 The module provides the following helper functions:
 
@@ -23,7 +24,7 @@ The module provides the following helper functions:
 
 <br>
 
-### Searchify
+## Searchify
 
 Stringifies `and` & `or` parameters.
 
@@ -39,7 +40,7 @@ const string = searchify( or( /* ... */ ) )
 
 <a name = and-or ></a>
 
-### And & Or
+## And & Or
 
 Combines child expressions together with their respective operator.
 
@@ -59,7 +60,7 @@ const expression = and( include() ) // Properties in include use 'AND' to combin
 
 <br>
 
-### Not
+## Not
 
 The child expression is wrapped in a negation statement.
 
@@ -75,7 +76,7 @@ NOT ( ... )
 
 <a name = include-exclude ></a>
 
-### Include & Exclude
+## Include & Exclude
 
 Collection of optional filters that can be combined ( + negated ).
 
@@ -104,8 +105,10 @@ include({
 [And]: #and-or
 [Or]: #and-or
 
+[Button Installation]: https://img.shields.io/badge/Installation-539c3f?style=for-the-badge&logoColor=white&logo=docusign
 [Button Examples]: https://img.shields.io/badge/Examples-14539a?style=for-the-badge&logoColor=white&logo=apacheparquet
 [Button Usage]: https://img.shields.io/badge/Usage-gray?style=for-the-badge&logoColor=white&logo=applearcade
 
+[Installation]: https://github.com/DoomCommerce/Shopify-Search/tree/Stable/Documentation/Installation.md
 [Examples]: https://github.com/DoomCommerce/Shopify-Search/tree/Stable/Examples
 [Usage]: #

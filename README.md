@@ -15,6 +15,7 @@ Create search query strings with helper functions.
 
 <div align = center >
 
+[![Button Installation]][Installation]  
 [![Button Usage]][Usage]  
 [![Button Examples]][Examples]
 
@@ -54,43 +55,17 @@ AND NOT ( tag:'Custom Shipping Rate' ) )
 </div>
 
 <br>
-<br>
-
-## Installation
-
-Install the module as dependency.
-
-```sh
-npm install @doomcommerce/shopify-search
-```
-
-<br>
-
-Alias the module for ease of use.
-
-```json
-"paths" : {
-    "Search" : [ "node_modules/@doomcommerce/shopify-search" ] ,
-}
-```
-
-<br>
 
 <!----------------------------------------------------------------------------->
-
-[Searchify]: #searchify
-[Include]: #include-exclude
-[Exclude]: #include-exclude
-[Not]: #not
-[And]: #and-or
-[Or]: #and-or
 
 [Badge NPM]: https://img.shields.io/npm/v/%40doomcommerce%2Fshopify-search?style=for-the-badge&logoColor=white&logo=NPM
 [NPM]: https://www.npmjs.com/package/@doomcommerce/shopify-search
 
+[Button Installation]: https://img.shields.io/badge/Installation-539c3f?style=for-the-badge&logoColor=white&logo=docusign
 [Button Examples]: https://img.shields.io/badge/Examples-14539a?style=for-the-badge&logoColor=white&logo=apacheparquet
 [Button Usage]: https://img.shields.io/badge/Usage-b85b4a?style=for-the-badge&logoColor=white&logo=applearcade
 
 
+[Installation]: https://github.com/DoomCommerce/Shopify-Search/tree/Stable/Documentation/Installation.md
 [Examples]: https://github.com/DoomCommerce/Shopify-Search/tree/Stable/Examples
-[Usage]: https://github.com/DoomCommerce/Shopify-Search/tree/Stable/Documentation/Usage
+[Usage]: https://github.com/DoomCommerce/Shopify-Search/tree/Stable/Documentation/Usage.md
