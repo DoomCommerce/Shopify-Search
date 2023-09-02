@@ -103,6 +103,8 @@ const string = searchify( or( /* ... */ ) )
 
 <br>
 
+<a name = and-or ></a>
+
 ### And & Or
 
 Combines child expressions together with their respective operator.
@@ -137,6 +139,8 @@ NOT ( ... )
 
 <br>
 
+<a name = include-exclude ></a>
+
 ### Include & Exclude
 
 Collection of optional filters that can be combined ( + negated ).
@@ -160,11 +164,11 @@ include({
 <!----------------------------------------------------------------------------->
 
 [Searchify]: #searchify
-[Include]: #include
-[Exclude]: #exclude
+[Include]: #include-exclude
+[Exclude]: #include-exclude
 [Not]: #not
-[And]: #and
-[Or]: #or
+[And]: #and-or
+[Or]: #and-or
 
 [Badge NPM]: https://img.shields.io/npm/v/%40doomcommerce%2Fshopify-search?style=for-the-badge&logoColor=white&logo=NPM
 [NPM]: https://www.npmjs.com/package/@doomcommerce/shopify-search
