@@ -11,7 +11,39 @@
 
 <br>
 
+<div align = center >
+
 # Installation
+
+</div>
+
+<br>
+<br>
+
+## Deno
+
+Import the module.
+
+```ts
+import { ... } from 'npm:@doomcommerce/shopify-search'
+```
+
+<br>
+
+Alias the module via importmap.
+
+```json
+{
+    "imports" : {
+        "Search" : "npm:@doomcommerce/shopify-search"
+    }
+}
+```
+
+<br>
+<br>
+
+## NPM
 
 Install the module as dependency.
 
