@@ -6,7 +6,6 @@
     "types": "./Build/Source/mod.d.ts",
     "exports": {
         ".": {
-            "require": "./Build/Source/mod.js",
             "types": "./Build/Source/mod.d.ts",
             "default": "./Build/Source/mod.js"
         }

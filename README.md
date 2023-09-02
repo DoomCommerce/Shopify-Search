@@ -1,8 +1,6 @@
 
 <div align = center >
 
-<br>
-
 [![Badge NPM]][NPM]
 
 <br>
@@ -15,9 +13,13 @@ Create search query strings with helper functions.
 
 <br>
 
-[<img height = 500 width = 15% align = left  src = 'Resources/Space.svg' >][#]
-[<img height = 500 width = 15% align = right src = 'Resources/Space.svg' >][#]
-<div align = left >
+<div align = center >
+
+[![Button Examples]][Examples]
+
+</div>
+
+<br>
 
 ```ts
 
@@ -35,8 +37,6 @@ const filterBy = exclude({
 
 searchify(and(inRange,filterBy))
 ```
-
-</div>
 
 <div align = center >
 
@@ -166,7 +166,9 @@ include({
 [And]: #and
 [Or]: #or
 
-[#]: #
-
 [Badge NPM]: https://img.shields.io/npm/v/%40doomcommerce%2Fshopify-search?style=for-the-badge&logoColor=white&logo=NPM
 [NPM]: https://www.npmjs.com/package/@doomcommerce/shopify-search
+
+[Button Examples]: https://img.shields.io/badge/Examples-14539a?style=for-the-badge&logoColor=white&logo=GitHub
+
+[Examples]: https://github.com/DoomCommerce/Shopify-Search/tree/Stable/Examples

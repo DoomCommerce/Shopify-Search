@@ -1,6 +1,5 @@
 
-import { searchify , include , exclude , not , and } from '../../Source/mod'
-
+import { searchify , include , exclude , not , and } from '@doomcommerce/shopify-search'
 
 const searchA = searchify(
     and(

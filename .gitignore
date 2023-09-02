@@ -1,3 +1,5 @@
 
 Build
 node_modules
+
+Examples/**/package-lock.json
