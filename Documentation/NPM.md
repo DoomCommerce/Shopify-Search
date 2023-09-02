@@ -1,10 +1,6 @@
 
 <div align = center >
 
-[![Badge NPM]][NPM]
-
-<br>
-
 # Shopify Search <br> Query Builder
 
 Create search query strings with helper functions.
@@ -55,9 +51,6 @@ AND NOT ( tag:'Custom Shipping Rate' ) )
 <br>
 
 <!----------------------------------------------------------------------------->
-
-[Badge NPM]: https://img.shields.io/npm/v/%40doomcommerce%2Fshopify-search?style=for-the-badge&logoColor=white&logo=NPM
-[NPM]: https://www.npmjs.com/package/@doomcommerce/shopify-search
 
 [Button Installation]: https://img.shields.io/badge/Installation-539c3f?style=for-the-badge&logoColor=white&logo=docusign
 [Button Examples]: https://img.shields.io/badge/Examples-14539a?style=for-the-badge&logoColor=white&logo=apacheparquet
