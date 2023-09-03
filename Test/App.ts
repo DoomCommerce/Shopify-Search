@@ -1,5 +1,5 @@
 
-import { searchify , include , exclude , not , and , or } from '../Source/mod'
+import { searchify , include ,exclude , not , and , or } from '../Source/mod'
 
 
 const search = searchify(

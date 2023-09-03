@@ -2,10 +2,11 @@
 export { fromProperties }
 
 import { Combinator , Properties , isExclude , Filter , wrap } from '..'
+import { Query } from 'Functions/Properties/Queries'
 
 
 
-function fromProperties ( filter : Filter , combinator : Combinator ){
+function fromProperties <QueryType extends Query > ( filter : Filter<QueryType> , combinator : Combinator ){
 
     const exclude = isExclude(filter)
 
@@ -20,7 +21,7 @@ function fromProperties ( filter : Filter , combinator : Combinator ){
 
     for ( const type in properties ){
 
-        const key = type as keyof Properties
+        const key = type as keyof Properties[QueryType]
 
         const value = properties[ key ]
 

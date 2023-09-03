@@ -2,21 +2,19 @@
 export type { Exclude }
 export { isExclude , exclude }
 
-import { Properties } from '..'
+import { Properties , Query } from '..'
 
 
-interface Exclude {
-    exclude : Properties
+interface Exclude <Type extends Query> {
+    exclude : Properties [ Type ]
 }
 
 
-function exclude ( properties : Properties ){
-    return {
-        exclude : properties
-    } satisfies Exclude
+function exclude < Type extends Query > ( properties : Properties [ Type ] ){
+    return { exclude : properties } satisfies Exclude<Type>
 }
 
 
-function isExclude ( value : any ) : value is Exclude {
+function isExclude < Type extends Query > ( value : any ) : value is Exclude<Type> {
     return Object.hasOwn(value,'exclude')
 }

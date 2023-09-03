@@ -1,31 +1,21 @@
 
-export type { Properties , Filter }
+export type { Filter }
 export { isFilter }
 
 export * from './Include'
 export * from './Exclude'
+export * from './Queries'
 
 import { isInclude , isExclude , Include , Exclude } from '.'
+import { Query } from './Queries'
 
 
-type Filter =
-    | Include
-    | Exclude
+type Filter < QueryType extends Query > =
+    | Include<QueryType>
+    | Exclude<QueryType>
 
 
-interface Properties {
-
-    channels ?: Array<string>
-    tags ?: Array<string>
-
-    orders ?: {
-        from : number
-        to : number
-    }
-}
-
-
-function isFilter ( value : any ) : value is Filter {
+function isFilter <QueryType extends Query > ( value : any ) : value is Filter<QueryType> {
     return isExclude(value)
         || isInclude(value)
 }

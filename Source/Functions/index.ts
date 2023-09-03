@@ -8,4 +8,4 @@ import { Include , Exclude } from './Properties'
 import { Not , And , Or } from './Logical'
 
 
-type Expression = And | Or | Not | Exclude | Include
+type Expression = And | Or | Not | Exclude<any> | Include<any>

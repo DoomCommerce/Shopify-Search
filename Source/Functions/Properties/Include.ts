@@ -2,21 +2,19 @@
 export type { Include }
 export { isInclude , include }
 
-import { Properties , Expression } from '..'
+import { Properties , Query } from '..'
 
 
-interface Include {
-    include : Properties
+interface Include < Type extends Query > {
+    include : Properties [ Type ]
 }
 
 
-function include ( properties : Properties ){
-    return {
-        include : properties
-    } satisfies Include
+function include < Type extends Query > ( properties : Properties [ Type ] ){
+    return { include : properties } satisfies Include<Type>
 }
 
 
-function isInclude ( value : any ) : value is Include {
+function isInclude < Type extends Query > ( value : any ) : value is Include<Type> {
     return Object.hasOwn(value,'include')
 }
