@@ -12,7 +12,7 @@
     },
     "scripts": {
         "build": "tsc",
-        "dev": "ts-node-dev Examples/Basic/App.ts"
+        "dev": "ts-node-dev --respawn Test/App.ts"
     },
     "publishConfig": {
         "access": "public"
@@ -36,9 +36,9 @@
         "builder"
     ],
     "devDependencies": {
-        "@types/node": "^20.5.8",
-        "typescript": "^5.2.2" ,
-        "ts-node-dev": "^2.0.0"
+        "@types/node": "^20.5.9",
+        "ts-node-dev": "^2.0.0",
+        "typescript": "^5.2.2"
     },
     "files": [
         "**/*.d.ts",
@@ -46,5 +46,8 @@
         "**/*.js",
         "**/*.js.map",
         "!node_modules"
-    ]
+    ],
+    "dependencies": {
+        "tslib": "^2.6.2"
+    }
 }

@@ -1,26 +1,10 @@
 
-export { searchify , include , exclude , not , and , or  }
+export * from './Functions'
 
+export { searchify }
 
-interface Properties {
+import { Properties , Expression , Exclude , Include , Not , And , Or } from './Functions'
 
-    channels ?: Array<string>
-    tags ?: Array<string>
-
-    orders ?: {
-        from : number
-        to : number
-    }
-}
-
-
-interface Include {
-    include : Properties
-}
-
-interface Exclude {
-    exclude : Properties
-}
 
 type Filter =
     | Include
@@ -30,19 +14,6 @@ type Combinator =
     | 'And'
     | 'Or'
 
-interface Or {
-    or : Array<Expression>
-}
-
-interface And {
-    and : Array<Expression>
-}
-
-interface Not {
-    not : And | Or
-}
-
-type Expression = And | Or | Not | Exclude | Include
 
 
 function searchify ( value : And | Or | Not ) : string {
@@ -132,36 +103,7 @@ function stringifyFilter ( filter : Filter , combinator : Combinator ){
     return filters.join(separator)
 }
 
-function exclude ( properties : Properties ){
-    return {
-        exclude : properties
-    }
-}
 
-function include ( properties : Properties ){
-    return {
-        include : properties
-    }
-}
-
-
-function or ( ... filters : Array<Expression> ){
-    return {
-        or : filters
-    }
-}
-
-function and ( ... filters : Array<Expression> ){
-    return {
-        and : filters
-    }
-}
-
-function not ( filter : And | Or ){
-    return {
-        not : filter
-    }
-}
 
 
 function isNot ( value : Expression ) : value is Not {

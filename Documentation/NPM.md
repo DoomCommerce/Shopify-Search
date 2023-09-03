@@ -1,4 +1,6 @@
 
+<br>
+
 <div align = center >
 
 # Shopify Search <br> Query Builder
