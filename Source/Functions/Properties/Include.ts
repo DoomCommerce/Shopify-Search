@@ -1,8 +1,8 @@
 
 export type { Include }
-export { include }
+export { isInclude , include }
 
-import { Properties } from '.'
+import { Properties , Expression } from '..'
 
 
 interface Include {
@@ -14,4 +14,9 @@ function include ( properties : Properties ){
     return {
         include : properties
     }
+}
+
+
+function isInclude ( value : Expression ) : value is Include {
+    return Object.hasOwn(value,'include')
 }

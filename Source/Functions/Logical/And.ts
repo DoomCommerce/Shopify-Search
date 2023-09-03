@@ -1,8 +1,8 @@
 
 export type { And }
-export { and }
+export { isAnd , and }
 
-import { Expression } from '../'
+import { Expression } from '..'
 
 
 interface And {
@@ -14,4 +14,9 @@ function and ( ... filters : Array<Expression> ){
     return {
         and : filters
     }
+}
+
+
+function isAnd ( value : Expression ) : value is And {
+    return Object.hasOwn(value,'and')
 }

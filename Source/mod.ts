@@ -3,7 +3,11 @@ export * from './Functions'
 
 export { searchify }
 
-import { Properties , Expression , Exclude , Include , Not , And , Or } from './Functions'
+import {
+    Properties , Expression , Exclude ,
+    Include , Not , And , Or , isExclude ,
+    isInclude , isNot , isAnd , isOr
+} from './Functions'
 
 
 type Filter =
@@ -102,30 +106,6 @@ function stringifyFilter ( filter : Filter , combinator : Combinator ){
 
     return filters.join(separator)
 }
-
-
-
-
-function isNot ( value : Expression ) : value is Not {
-    return Object.hasOwn(value,'not')
-}
-
-function isAnd ( value : Expression ) : value is And {
-    return Object.hasOwn(value,'and')
-}
-
-function isOr ( value : Expression ) : value is Or {
-    return Object.hasOwn(value,'or')
-}
-
-function isExclude ( value : Expression ) : value is Exclude {
-    return Object.hasOwn(value,'exclude')
-}
-
-function isInclude ( value : Expression ) : value is Include {
-    return Object.hasOwn(value,'include')
-}
-
 
 function wrap ( value : string ){
     return `( ${ value } )`

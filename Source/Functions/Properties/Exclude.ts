@@ -1,8 +1,8 @@
 
 export type { Exclude }
-export { exclude }
+export { isExclude , exclude }
 
-import { Properties } from '.'
+import { Properties , Expression } from '..'
 
 
 interface Exclude {
@@ -14,4 +14,9 @@ function exclude ( properties : Properties ){
     return {
         exclude : properties
     }
+}
+
+
+function isExclude ( value : Expression ) : value is Exclude {
+    return Object.hasOwn(value,'exclude')
 }

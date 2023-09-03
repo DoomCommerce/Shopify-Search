@@ -1,8 +1,8 @@
 
 export type { Not }
-export { not }
+export { isNot , not }
 
-import { And , Or } from '.'
+import { Expression , And , Or } from '..'
 
 
 interface Not {
@@ -14,4 +14,9 @@ function not ( filter : And | Or ){
     return {
         not : filter
     }
+}
+
+
+function isNot ( value : Expression ) : value is Not {
+    return Object.hasOwn(value,'not')
 }

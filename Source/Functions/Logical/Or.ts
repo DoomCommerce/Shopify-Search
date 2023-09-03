@@ -1,8 +1,8 @@
 
 export type { Or }
-export { or }
+export { isOr , or }
 
-import { Expression } from '../'
+import { Expression } from '..'
 
 
 interface Or {
@@ -14,4 +14,9 @@ function or ( ... filters : Array<Expression> ){
     return {
         or : filters
     }
+}
+
+
+function isOr ( value : Expression ) : value is Or {
+    return Object.hasOwn(value,'or')
 }
