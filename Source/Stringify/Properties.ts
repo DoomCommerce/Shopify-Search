@@ -1,7 +1,7 @@
 
 export { fromProperties }
 
-import { Combinator , Properties , isExclude , Filter , wrap } from '../mod'
+import { Combinator , Properties , isExclude , Filter , wrap } from '..'
 
 
 
@@ -12,6 +12,9 @@ function fromProperties ( filter : Filter , combinator : Combinator ){
     const properties = ( exclude )
         ? filter.exclude
         : filter.include
+
+    if( Object.keys(properties).length < 1 )
+        return null
 
     let filters : Array<string> = []
 

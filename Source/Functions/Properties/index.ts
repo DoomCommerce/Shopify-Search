@@ -1,10 +1,11 @@
 
 export type { Properties , Filter }
+export { isFilter }
 
 export * from './Include'
 export * from './Exclude'
 
-import { Include , Exclude } from '.'
+import { isInclude , isExclude , Include , Exclude } from '.'
 
 
 type Filter =
@@ -21,4 +22,10 @@ interface Properties {
         from : number
         to : number
     }
+}
+
+
+function isFilter ( value : any ) : value is Filter {
+    return isExclude(value)
+        || isInclude(value)
 }

@@ -2,7 +2,7 @@
 export type { Exclude }
 export { isExclude , exclude }
 
-import { Properties , Expression } from '..'
+import { Properties } from '..'
 
 
 interface Exclude {

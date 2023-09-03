@@ -1,8 +1,8 @@
 
 export { fromCombined }
 
-import { fromProperties , fromLogical , wrap } from '.'
-import { Expression, Combinator , isInclude , isExclude , isNot , isAnd , isOr , And , Or } from '../mod'
+import { fromExpression , wrap } from '.'
+import { isAnd , And , Or } from '..'
 
 
 function fromCombined ( conditional : And | Or ){
@@ -15,7 +15,7 @@ function fromCombined ( conditional : And | Or ){
         ? 'And' : 'Or'
 
     const valid =  filters
-        .map(( filter ) => toString(filter,combinator))
+        .map(( filter ) => fromExpression(filter,combinator))
         .filter(Boolean)
 
     if( valid.length )
@@ -24,16 +24,4 @@ function fromCombined ( conditional : And | Or ){
             .join(' AND ')
 
     return null
-}
-
-
-function toString ( value : Expression , combinator : Combinator ){
-
-    if( isAnd(value) || isOr(value) || isNot(value) )
-        return fromLogical(value)
-
-    if( isInclude(value) || isExclude(value) )
-        return fromProperties(value,combinator)
-
-    throw `Unknown value type` + JSON.stringify(value)
 }

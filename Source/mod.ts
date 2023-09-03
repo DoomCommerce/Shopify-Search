@@ -1,13 +1,18 @@
 
-export * from './Functions'
-export * from './Stringify'
+export type {
 
-export { searchify }
+    Properties ,
+    Include , Exclude ,
+    Not , And , Or
 
-import { fromLogical } from './Stringify'
-import { Logical } from './Functions'
+} from '.'
 
 
-function searchify ( value : Logical ) : string {
-    return fromLogical(value) ?? ''
-}
+export {
+
+    searchify ,
+    include , exclude ,
+    not , and , or
+
+} from '.'
+
