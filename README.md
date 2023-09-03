@@ -24,6 +24,7 @@ Create search query strings with helper functions.
 <br>
 
 ```ts
+import { searchify , include , exclude , and } from '@doomcommerce/shopify-search'
 
 const inRange = include({
     orders : {
@@ -37,7 +38,9 @@ const filterBy = exclude({
     tags : [ 'Custom Shipping Rate' ]
 })
 
-searchify(and(inRange,filterBy))
+const query = searchify(and(inRange,filterBy))
+
+console.log(query)
 ```
 
 <div align = center >
