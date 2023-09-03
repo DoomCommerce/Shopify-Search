@@ -59,7 +59,7 @@ AND NOT ( tag:'Custom Shipping Rate' ) )
 
 <!----------------------------------------------------------------------------->
 
-[Badge NPM]: https://img.shields.io/npm/v/%40doomcommerce%2Fshopify-search?style=for-the-badge&logoColor=white&logo=NPM
+[Badge NPM]: https://img.shields.io/npm/v/%40doomcommerce%2Fshopify-search?style=for-the-badge&logoColor=white&logo=NPM&labelColor=cb0000&color=950000
 [NPM]: https://www.npmjs.com/package/@doomcommerce/shopify-search
 
 [Button Installation]: https://img.shields.io/badge/Installation-539c3f?style=for-the-badge&logoColor=white&logo=docusign
