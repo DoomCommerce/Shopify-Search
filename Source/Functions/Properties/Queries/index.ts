@@ -2,23 +2,32 @@
 export type { Query }
 export { Properties }
 
-import { Properties as ProductProps } from './Products'
-import { Properties as OrderProps } from './Orders'
+import { ProductProps } from './Products'
+import { OrderProps } from './Orders'
 
 
 const Queries = {
 
     Products : 'Products' ,
-    Orders : 'Orders'
+    Orders : 'Orders' ,
+    Test : 'Test'
 
 } as const
 
-type Query =
-    ( typeof Queries )[ keyof typeof Queries ]
+type Queries = typeof Queries
+
+type Query = Queries[ keyof Queries ]
+
+type Properties < Type > =
+    Type extends Query
+        ? Props [ Type ]
+        : never
 
 
-interface Properties {
+interface Props {
 
     [ Queries.Products ] : ProductProps
     [ Queries.Orders ] : OrderProps
+    [ Queries.Test ] : never
+
 }

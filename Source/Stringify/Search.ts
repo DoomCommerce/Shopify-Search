@@ -1,9 +1,9 @@
 
 export { searchify }
 
-import { fromLogical , Logical } from '..'
+import { fromLogical , Logical , Query } from '..'
 
 
-function searchify ( value : Logical ) : string {
+function searchify < Type extends Query > ( value : Logical<Type> ) : string {
     return fromLogical(value) ?? ''
 }

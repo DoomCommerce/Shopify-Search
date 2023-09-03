@@ -4,8 +4,13 @@ export * from './Logical'
 
 export type { Expression }
 
-import { Include , Exclude } from './Properties'
+import { Include , Exclude , Query } from './Properties'
 import { Not , And , Or } from './Logical'
 
 
-type Expression = And | Or | Not | Exclude<any> | Include<any>
+type Expression < Type extends Query > =
+    | Include <Type>
+    | Exclude <Type>
+    | Not <Type>
+    | And <Type>
+    | Or <Type>

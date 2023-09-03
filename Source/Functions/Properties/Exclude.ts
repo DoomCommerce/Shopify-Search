@@ -5,13 +5,15 @@ export { isExclude , exclude }
 import { Properties , Query } from '..'
 
 
-interface Exclude <Type extends Query> {
-    exclude : Properties [ Type ]
+interface Exclude < Type extends Query > {
+    exclude : Properties<Type>
 }
 
 
-function exclude < Type extends Query > ( properties : Properties [ Type ] ){
-    return { exclude : properties } satisfies Exclude<Type>
+function exclude < Type extends 'Products' > ( properties : Properties<Type> ) : Exclude<Type>
+function exclude < Type extends 'Orders' > ( properties : Properties<Type> ) : Exclude<Type>
+function exclude < Type extends Query > ( properties : Properties<Type> ){
+            return { exclude : properties } satisfies Exclude<Type>
 }
 
 

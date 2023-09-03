@@ -2,21 +2,19 @@
 export type { Not }
 export { isNot , not }
 
-import { And , Or } from '..'
+import { Combined, Query } from '..'
 
 
-interface Not {
-    not : And | Or
+interface Not < Type extends Query > {
+    not : Combined<Type>
 }
 
 
-function not ( filter : And | Or ){
-    return {
-        not : filter
-    } satisfies Not
+function not < Type extends Query > ( filter : Combined<Type> ){
+    return { not : filter } satisfies Not<Type>
 }
 
 
-function isNot ( value : any ) : value is Not {
+function isNot < Type extends Query > ( value : any ) : value is Not<Type> {
     return Object.hasOwn(value,'not')
 }

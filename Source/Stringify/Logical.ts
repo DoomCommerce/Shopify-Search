@@ -1,11 +1,11 @@
 
 export { fromLogical }
 
-import { isNot , Not , And , Or } from '..'
+import { Logical , isNot , Query } from '..'
 import { fromCombined , wrap } from '.'
 
 
-function fromLogical ( value : And | Or | Not ) : null | string {
+function fromLogical < Type extends Query > ( value : Logical<Type> ) : null | string {
 
     const input = ( isNot(value) )
         ? value.not

@@ -1,11 +1,11 @@
 
 export { fromExpression }
 
-import { Expression, Combinator , isLogical , isFilter } from '..'
+import { Expression, Combinator , isLogical , isFilter , Query } from '..'
 import { fromProperties , fromLogical } from '.'
 
 
-function fromExpression ( value : Expression , combinator : Combinator ){
+function fromExpression < Type extends Query > ( value : Expression<Type> , combinator : Combinator ){
 
     if( isLogical(value) )
         return fromLogical(value)

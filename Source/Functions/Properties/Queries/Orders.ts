@@ -1,8 +1,8 @@
 
-export type { Properties }
+export type { OrderProps }
 
 
-interface Properties {
+interface OrderProps {
 
     channels ?: Array<string>
     tags ?: Array<string>

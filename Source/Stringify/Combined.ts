@@ -1,11 +1,11 @@
 
 export { fromCombined }
 
+import { Combined , isAnd , Query } from '..'
 import { fromExpression , wrap } from '.'
-import { isAnd , And , Or } from '..'
 
 
-function fromCombined ( conditional : And | Or ){
+function fromCombined < Type extends Query > ( conditional : Combined<Type> ){
 
     const filters = ( isAnd(conditional) )
         ? conditional.and

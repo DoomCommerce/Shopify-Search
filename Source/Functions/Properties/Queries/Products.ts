@@ -1,8 +1,8 @@
 
-export type { Properties }
+export type { ProductProps }
 
 
-interface Properties {
+interface ProductProps {
 
     // barcode
     // bundles

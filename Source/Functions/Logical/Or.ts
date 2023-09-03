@@ -2,21 +2,19 @@
 export type { Or }
 export { isOr , or }
 
-import { Expression } from '..'
+import { Expression , Query } from '..'
 
 
-interface Or {
-    or : Array<Expression>
+interface Or < Type extends Query > {
+    or : Array<Expression<Type>>
 }
 
 
-function or ( ... filters : Array<Expression> ){
-    return {
-        or : filters
-    } satisfies Or
+function or < Type extends Query > ( ... filters : Array<Expression<Type>> ){
+    return { or : filters } satisfies Or<Type>
 }
 
 
-function isOr ( value : any ) : value is Or {
+function isOr < Type extends Query > ( value : any ) : value is Or<Type> {
     return Object.hasOwn(value,'or')
 }

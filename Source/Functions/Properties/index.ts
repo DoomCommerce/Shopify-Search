@@ -6,16 +6,15 @@ export * from './Include'
 export * from './Exclude'
 export * from './Queries'
 
-import { isInclude , isExclude , Include , Exclude } from '.'
-import { Query } from './Queries'
+import { isInclude , isExclude , Include , Exclude , Query } from '.'
 
 
-type Filter < QueryType extends Query > =
-    | Include<QueryType>
-    | Exclude<QueryType>
+type Filter < Type extends Query > =
+    | Include<Type>
+    | Exclude<Type>
 
 
-function isFilter <QueryType extends Query > ( value : any ) : value is Filter<QueryType> {
+function isFilter < Type extends Query > ( value : any ) : value is Filter<Type> {
     return isExclude(value)
         || isInclude(value)
 }

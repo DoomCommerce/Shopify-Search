@@ -2,13 +2,39 @@
 import { searchify , include ,exclude , not , and , or } from '../Source/mod'
 
 
-const search = searchify(
+const search1 = searchify<'Products'>(
 
     and(
 
         or(
             include({
-                channels : [ 'A' ]
+
+            })
+        ),
+
+        exclude({
+        }),
+
+        not(
+            and(
+                include({})
+            )
+        )
+    )
+)
+
+
+console.log(search1)
+
+
+const search2 = searchify<'Orders'>(
+
+    and(
+
+        or(
+            include({
+                channels : [ 'A' ] ,
+
             })
         ),
 
@@ -25,4 +51,4 @@ const search = searchify(
 )
 
 
-console.log(search)
+console.log(search2)

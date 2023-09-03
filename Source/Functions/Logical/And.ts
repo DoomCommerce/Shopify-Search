@@ -2,21 +2,19 @@
 export type { And }
 export { isAnd , and }
 
-import { Expression } from '..'
+import { Expression , Query } from '..'
 
 
-interface And {
-    and : Array<Expression>
+interface And < Type extends Query > {
+    and : Array<Expression<Type>>
 }
 
 
-function and ( ... filters : Array<Expression> ){
-    return {
-        and : filters
-    } satisfies And
+function and < Type extends Query > ( ... filters : Array<Expression<Type>> ){
+    return { and : filters } satisfies And<Type>
 }
 
 
-function isAnd ( value : any ) : value is And {
+function isAnd < Type extends Query > ( value : any ) : value is And<Type> {
     return Object.hasOwn(value,'and')
 }
