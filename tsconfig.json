@@ -1,32 +1,35 @@
 {
-    "compileOnSave": false,
-    "compilerOptions": {
-      "composite": true,
-      "declaration": true,
-      "declarationMap": true,
-      "pretty": true,
-      "moduleResolution": "node",
-      "module": "commonjs",
-      "target": "es2015",
-      "downlevelIteration": true,
-      "esModuleInterop": true,
-      "sourceMap": true,
-      "noEmitOnError": false,
-      "experimentalDecorators": true,
-      "importHelpers": true,
-      "strictNullChecks": true,
-      "noImplicitAny": true,
-      "noImplicitThis": true,
-      "resolveJsonModule": true,
-      "skipLibCheck": true,
-      "lib": [ "es2023" , "ES2022.Object" ] ,
-      "typeRoots": ["./node_modules/@types"],
-      "types": [ "node"],
-      "baseUrl": "Source",
-      "rootDir": ".",
-      "outDir": "Build"
+    "compilerOptions" : {
+
+        "experimentalDecorators" : true ,
+        "downlevelIteration" : true ,
+        "resolveJsonModule" : true ,
+        "strictNullChecks" : true ,
+        "esModuleInterop" : true ,
+        "declarationMap" : true ,
+        "noImplicitThis" : true ,
+        "noEmitOnError" : false ,
+        "importHelpers" : true ,
+        "noImplicitAny" : true ,
+        "skipLibCheck" : true ,
+        "declaration" : true ,
+        "sourceMap" : true ,
+        "composite" : true ,
+        "pretty" : true ,
+
+        "moduleResolution" : "node" ,
+        "baseUrl" : "Source" ,
+        "rootDir" : "." ,
+        "module" : "commonjs" ,
+        "target" : "es2015" ,
+        "outDir" : "Build" ,
+
+        "typeRoots" : [ "node_modules/@types" ] ,
+        "types" : [ "node" ] ,
+        "lib" : [ "es2023" , "ES2022.Object" ]
     },
-    "include": [
-      "Source/**/*.ts"
+
+    "include" : [
+        "Source/**/*.ts"
     ]
-  }
+}
