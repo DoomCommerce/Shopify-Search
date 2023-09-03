@@ -13,10 +13,10 @@ interface Include {
 function include ( properties : Properties ){
     return {
         include : properties
-    }
+    } satisfies Include
 }
 
 
-function isInclude ( value : Expression ) : value is Include {
+function isInclude ( value : any ) : value is Include {
     return Object.hasOwn(value,'include')
 }

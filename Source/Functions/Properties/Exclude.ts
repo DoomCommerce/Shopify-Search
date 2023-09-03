@@ -13,10 +13,10 @@ interface Exclude {
 function exclude ( properties : Properties ){
     return {
         exclude : properties
-    }
+    } satisfies Exclude
 }
 
 
-function isExclude ( value : Expression ) : value is Exclude {
+function isExclude ( value : any ) : value is Exclude {
     return Object.hasOwn(value,'exclude')
 }

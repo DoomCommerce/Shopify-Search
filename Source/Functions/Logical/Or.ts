@@ -13,10 +13,10 @@ interface Or {
 function or ( ... filters : Array<Expression> ){
     return {
         or : filters
-    }
+    } satisfies Or
 }
 
 
-function isOr ( value : Expression ) : value is Or {
+function isOr ( value : any ) : value is Or {
     return Object.hasOwn(value,'or')
 }

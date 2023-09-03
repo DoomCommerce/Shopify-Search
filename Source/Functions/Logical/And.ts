@@ -13,10 +13,10 @@ interface And {
 function and ( ... filters : Array<Expression> ){
     return {
         and : filters
-    }
+    } satisfies And
 }
 
 
-function isAnd ( value : Expression ) : value is And {
+function isAnd ( value : any ) : value is And {
     return Object.hasOwn(value,'and')
 }
