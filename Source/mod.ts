@@ -21,12 +21,23 @@ type Combinator =
 
 
 function searchify ( value : And | Or | Not ) : string {
+    return _searchify(value) ?? ''
+}
+
+function _searchify ( value : And | Or | Not ) : null | string {
 
     if( isAnd(value) || isOr(value) )
         return stringifyCondition(value)
 
-    if( isNot(value) )
-        return `NOT ${ wrap(searchify(value.not)) }`
+    if( isNot(value) ){
+
+        const query = stringifyCondition(value.not)
+
+        if( query )
+            return `NOT ${ wrap(query) }`
+
+        return null
+    }
 
     throw `Unknown value type` + JSON.stringify(value)
 }
@@ -34,7 +45,7 @@ function searchify ( value : And | Or | Not ) : string {
 function toString ( value : Expression , combinator : Combinator ){
 
     if( isAnd(value) || isOr(value) || isNot(value) )
-        return searchify(value)
+        return _searchify(value)
 
     if( isInclude(value) || isExclude(value) )
         return stringifyFilter(value,combinator)
@@ -52,11 +63,16 @@ function stringifyCondition ( conditional : And | Or ){
     const combinator = ( isAnd(conditional) )
         ? 'And' : 'Or'
 
-    return filters
+    const valid =  filters
         .map(( filter ) => toString(filter,combinator))
-        .filter(( value ) => value.length )
-        .map(wrap).join(' AND ')
+        .filter(Boolean)
 
+    if( valid.length )
+        return valid
+            .map(wrap)
+            .join(' AND ')
+
+    return null
 }
 
 function stringifyFilter ( filter : Filter , combinator : Combinator ){
@@ -96,7 +112,7 @@ function stringifyFilter ( filter : Filter , combinator : Combinator ){
     }
 
     if( filters.length < 1 )
-        return ''
+        return null
 
     if( exclude )
         filters = filters.map(( filter ) => `NOT ${ wrap(filter) }`)
